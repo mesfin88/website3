@@ -22,6 +22,7 @@ SELECT v.CaseNumber as 'መዝገብ ቁጥር',
 v.DefendantName as 'ተከሳሽ' ,
 r.RoomName as 'ችሎት',
 v.DateAppointedAmh as 'የቀጠሮ ቀን',
+v.IsAfternoonAppoint as 'ሰዐት',
 a.AppointReasonName as 'የቀጠሮ ምክኒያት'  
 FROM dbo.V_AppointList v LEFT OUTER JOIN  dbo.CourtRoomInfo  r on v.CurrentCourtRoomNumber=r.RoomNumber LEFT OUTER JOIN dbo.AppointReason a on v.AppointReasonId=a.AppointReasonId 
 WHERE convert(varchar,cast(v.DateAppointed as datetime),112)= convert(varchar,getdate(),112) and r.RoomNumber=94";
